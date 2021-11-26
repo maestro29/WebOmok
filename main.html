@@ -8,31 +8,43 @@
 </head>
 <body>
     <img 
+     name=boardImg
      src="https://raw.githubusercontent.com/maestro29/WebOmok/main/board.bmp"
      onclick="image_onclick()"
      style="display:block; margin: 0 auto"> 
-     <div id="stone_x"></div>
+     
     <script>
-        
+        var turn = 0;
+        var blackStonePath = "https://github.com/maestro29/WebOmok/blob/main/black.png?raw=true";
+        var whiteStonePath = "https://github.com/maestro29/WebOmok/blob/main/white.png?raw=true";
+
+
         function image_onclick(){
+            turn++;
             var a = 5;
             console.log(a*a);
 
-            x = event.offsetX;
-            y = event.offsetY;
-            alert("현재좌표 : " + x + ", " + y);
-            // document.getElementById("stone_x").innerHTML=x;
+            var x = event.offsetX;
+            var y = event.offsetY;
+            
+            var boardX = parseInt(x / (465/15));
+            var boardY = parseInt(y / (465/15));
+            
+            // alert("현재좌표 : " + x + ", " + y);
 
-            stone = document.createElement("img");
-            stone.src = "https://github.com/maestro29/WebOmok/blob/main/black.png?raw=true"
-            stone.width = "30";
-            stone.height = "30";
+            var stoneImg = document.createElement("img");
+
+            //stone.src = (turn % 2 == 0)? whiteStonePath : blackStonePath;
+            stoneImg.src = (turn % 2 == 0) &&  whiteStonePath ||  blackStonePath;
+
+            stoneImg.width = "30";
+            stoneImg.height = "30";
             
-            stone.style.position = "absolute";
-            stone.style.left = x + "px";
-            stone.style.top = y + "px";
+            stoneImg.style.position = "absolute";
+            stoneImg.style.left = boardImg.offsetLeft + boardX*31 + "px";
+            stoneImg.style.top = boardImg.offsetTop + boardY*31 + "px";
             
-            document.body.appendChild(stone);
+            document.body.appendChild(stoneImg);
         }
         //[ Javascript ] Mouse Event - 클릭한 위치에 이미지 동적 생성하기
 
