@@ -21,17 +21,22 @@
             x = event.offsetX;
             y = event.offsetY;
             alert("현재좌표 : " + x + ", " + y);
-            document.getElementById("stone_x").innerHTML=x;
+            // document.getElementById("stone_x").innerHTML=x;
+
+            stone = document.createElement("img");
+            stone.src = "https://github.com/maestro29/WebOmok/blob/main/black.png?raw=true"
+            stone.width = "30";
+            stone.height = "30";
+            
+            stone.style.position = "absolute";
+            stone.style.left = x + "px";
+            stone.style.top = y + "px";
+            
+            document.body.appendChild(stone);
         }
         //[ Javascript ] Mouse Event - 클릭한 위치에 이미지 동적 생성하기
 
     </script>
-    <img src="https://github.com/maestro29/WebOmok/blob/main/black.png?raw=true"
-     style="position: absolute;
-            width : 30px;
-            height : 30px;
-            left : stone_x;
-            top : 150px;">
     
 </body>
 </html>
