@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img 
+     src="C:\Users\SNYJ_FAFA\Desktop\board.bmp"
+     onclick="image_onclick()"
+     style="display:block; margin: 0 auto"> 
+     <div id="stone_x"></div>
+    <script>
+        
+        function image_onclick(){
+            var a = 5;
+            console.log(a*a);
+
+            x = event.offsetX;
+            y = event.offsetY;
+            alert("현재좌표 : " + x + ", " + y);
+            document.getElementById("stone_x").innerHTML=x;
+        }
+
+    </script>
+    <img src="C:\Users\SNYJ_FAFA\Desktop\black.png"
+     style="position: absolute;
+            width : 30px;
+            height : 30px;
+            left : stone_x;
+            top : 150px;">
+    
+</body>
+</html>
